@@ -1,7 +1,12 @@
-var listaTeclas = [document.querySelectorAll('.tecla')]
-var listaAudios = [document.querySelectorAll('audio')]
+var listaTeclas =[]
+var listaAudios = []
+var audios = [document.querySelectorAll('audio')].map(valor => valor.forEach(audio=> listaAudios.push(audio)))
+var teclas = [document.querySelectorAll('.tecla')].map(valor => valor.forEach(tecla=>listaTeclas.push(tecla)))
+
+listaTeclas.forEach(tecla => tecla.addEventListener('click', function(){
+    listaAudios[listaTeclas.indexOf(tecla)].play()
+}))
 
 
-function playAudio(value){
-    listaAudios.map(n => n[value].play())
-}
+
+
